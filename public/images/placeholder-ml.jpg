@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#FFFFFF"/>
+  <rect x="50" y="50" width="1100" height="800" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="2"/>
+  
+  <!-- Mockup de ficha ML -->
+  <rect x="100" y="100" width="400" height="300" fill="#FFB300" opacity="0.2"/>
+  <rect x="550" y="100" width="600" height="700" fill="#F5F5F5"/>
+  
+  <!-- Título -->
+  <rect x="580" y="130" width="400" height="40" fill="#1C1C1E" opacity="0.1"/>
+  
+  <!-- Precio -->
+  <rect x="580" y="200" width="200" height="50" fill="#FFB300" opacity="0.3"/>
+  
+  <!-- Bullets -->
+  <circle cx="590" cy="280" r="5" fill="#28A745"/>
+  <rect x="605" y="275" width="300" height="10" fill="#B8B8B8" opacity="0.3"/>
+  
+  <circle cx="590" cy="310" r="5" fill="#28A745"/>
+  <rect x="605" y="305" width="250" height="10" fill="#B8B8B8" opacity="0.3"/>
+  
+  <circle cx="590" cy="340" r="5" fill="#28A745"/>
+  <rect x="605" y="335" width="280" height="10" fill="#B8B8B8" opacity="0.3"/>
+  
+  <!-- CTA Button -->
+  <rect x="580" y="700" width="500" height="60" fill="#FFB300" rx="8"/>
+  
+  <text x="600" y="450" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#2B2B2B" opacity="0.2">
+    FICHA ML
+  </text>
+  <text x="600" y="490" font-family="Arial, sans-serif" font-size="18" fill="#B8B8B8" opacity="0.4">
+    Placeholder - Reemplazar
+  </text>
+</svg>

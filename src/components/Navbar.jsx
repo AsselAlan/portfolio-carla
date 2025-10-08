@@ -1,96 +1,162 @@
 import { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const menuItems = [
-    { name: 'SOBRE MI', href: '#sobre-mi' },
-    { name: 'PROYECTOS', href: '#proyectos' },
-    { name: 'CONTACTO', href: '#contact' },
-    { name: 'CV', href: '#cv' },
+  const navItems = [
+    { name: 'SOBRE MÍ', path: '/sobre-mi' },
+    { name: 'PROYECTOS', path: '/', isScroll: true, targetId: 'proyectos' },
+    { name: 'CONTACTO', path: '/contacto' },
+    { name: 'CV', path: '/cv', isDownload: true },
   ];
+
+  const isActive = (path) => location.pathname === path;
+
+  const handleNavClick = (item) => {
+    setIsMenuOpen(false);
+    
+    // Si es un link con scroll a sección
+    if (item.isScroll) {
+      // Si no estamos en home, navegar primero
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Esperar a que se cargue y hacer scroll
+        setTimeout(() => {
+          const element = document.getElementById(item.targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      } else {
+        // Ya estamos en home, solo scroll
+        const element = document.getElementById(item.targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+  };
 
   return (
     <>
-      <nav className="fixed top-0 w-full bg-brand-accent z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            {/* Hamburger Menu */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="w-10 h-10 flex flex-col items-center justify-center gap-1.5 hover:opacity-70 transition-opacity"
-              aria-label="Menu"
-            >
-              <span className="w-6 h-0.5 bg-black"></span>
-              <span className="w-6 h-0.5 bg-black"></span>
-              <span className="w-6 h-0.5 bg-black"></span>
-            </button>
+      {/* Navbar cerrado */}
+      <nav className="fixed top-0 left-0 right-0 bg-brand-accent z-50 border-b border-black/10">
+        <div className="flex items-center justify-between px-6 md:px-12 h-16">
+          {/* Hamburger Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-brand-secondary hover:text-brand-primary transition-colors p-2 -ml-2"
+            aria-label="Toggle menu"
+          >
+            <svg width="35" height="18" viewBox="0 0 35 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 2H34.4687" stroke="currentColor" strokeWidth="2.09497"/>
+              <path d="M0 9.0705H34.4687" stroke="currentColor" strokeWidth="2.09497"/>
+              <path d="M0 16.141H34.4687" stroke="currentColor" strokeWidth="2.09497"/>
+            </svg>
+          </button>
 
-            {/* Logo Central */}
-            <a href="#hero" className="font-cursive text-3xl text-black">
-              calu
-            </a>
+          {/* Logo Centro */}
+          <Link 
+            to="/" 
+            className="absolute left-1/2 transform -translate-x-1/2 font-cursive text-3xl text-brand-secondary hover:text-brand-primary transition-colors"
+          >
+            calu
+          </Link>
 
-            {/* Contacto */}
-            <a
-              href="#contact"
-              className="text-black text-xs font-medium hover:opacity-70 transition-opacity tracking-wider"
-            >
-              CONTACTO
-            </a>
-          </div>
+          {/* Contacto Derecha */}
+          <Link
+            to="/contacto"
+            className="text-sm font-medium text-brand-secondary hover:text-brand-primary transition-colors uppercase tracking-wider"
+          >
+            CONTACTO
+          </Link>
         </div>
       </nav>
 
-      {/* Fullscreen Menu */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 bg-brand-accent z-[60] flex flex-col">
-          {/* Header del menú */}
-          <div className="max-w-7xl w-full mx-auto px-6 py-4">
-            <div className="flex items-center justify-between">
-              {/* Hamburger Menu (X cuando está abierto) */}
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="w-10 h-10 flex flex-col items-center justify-center gap-1.5 hover:opacity-70 transition-opacity"
-                aria-label="Cerrar Menu"
-              >
-                <span className="w-6 h-0.5 bg-black transform rotate-45 translate-y-1"></span>
-                <span className="w-6 h-0.5 bg-black transform -rotate-45 -translate-y-1"></span>
-              </button>
+      {/* Menu fullscreen */}
+      <div
+        className={`fixed inset-0 bg-brand-accent z-[60] transition-transform duration-500 ease-in-out ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="h-full flex flex-col">
+          {/* Header del menu */}
+          <div className="flex items-center justify-between px-6 md:px-12 h-16 border-b border-black/10">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="text-brand-secondary hover:text-brand-primary transition-colors p-2 -ml-2"
+              aria-label="Close menu"
+            >
+              <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 2L28.5695 29" stroke="currentColor" strokeWidth="4"/>
+                <path d="M2 29L29 2.86105" stroke="currentColor" strokeWidth="4"/>
+              </svg>
+            </button>
 
-              {/* Logo Central */}
-              <a href="#hero" className="font-cursive text-3xl text-black" onClick={() => setIsMenuOpen(false)}>
-                calu
-              </a>
+            {/* Logo Centro */}
+            <Link 
+              to="/" 
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute left-1/2 transform -translate-x-1/2 font-cursive text-3xl text-brand-secondary hover:text-brand-primary transition-colors"
+            >
+              calu
+            </Link>
 
-              {/* Contacto */}
-              <a
-                href="#contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-black text-xs font-medium hover:opacity-70 transition-opacity tracking-wider"
-              >
-                CONTACTO
-              </a>
-            </div>
+            {/* Contacto Derecha */}
+            <Link
+              to="/contacto"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-sm font-medium text-brand-secondary hover:text-brand-primary transition-colors uppercase tracking-wider"
+            >
+              CONTACTO
+            </Link>
           </div>
 
           {/* Menu Items */}
-          <div className="flex-1 flex items-start justify-start px-6 pt-12 md:px-12 md:pt-20">
-            <div className="space-y-4 md:space-y-6">
-              {menuItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block text-5xl md:text-6xl lg:text-7xl text-black font-light hover:opacity-70 transition-opacity leading-tight"
-                >
-                  {item.name}
-                </a>
+          <div className="flex-1 flex items-center px-6 md:px-12">
+            <nav className="space-y-8 md:space-y-12 w-full pl-0">
+              {navItems.map((item) => (
+                item.isDownload ? (
+                  <a
+                    key={item.path}
+                    href="/cv.pdf"
+                    download="CV-Carla-Lucero.pdf"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-5xl md:text-7xl lg:text-8xl font-light text-brand-secondary hover:text-brand-primary transition-colors duration-300 tracking-tight text-left"
+                  >
+                    {item.name}
+                  </a>
+                ) : item.isScroll ? (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavClick(item)}
+                    className="block text-5xl md:text-7xl lg:text-8xl font-light text-brand-secondary hover:text-brand-primary transition-colors duration-300 tracking-tight text-left w-full"
+                  >
+                    {item.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => handleNavClick(item)}
+                    className={`block text-5xl md:text-7xl lg:text-8xl font-light transition-colors duration-300 tracking-tight text-left ${
+                      isActive(item.path)
+                        ? 'text-brand-primary'
+                        : 'text-brand-secondary hover:text-brand-primary'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
-            </div>
+            </nav>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };

@@ -25,9 +25,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Playfair Display', 'serif'],
-        cursive: ['Dancing Script', 'cursive'],
+        sans: ['Helvetica Neue', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Helvetica Neue', 'system-ui', '-apple-system', 'sans-serif'],
       },
     },
   },

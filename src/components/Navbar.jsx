@@ -51,7 +51,7 @@ const Navbar = () => {
             className="text-brand-secondary hover:text-brand-primary transition-colors p-2 -ml-2"
             aria-label="Toggle menu"
           >
-            <svg width="35" height="18" viewBox="0 0 35 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="28" height="14" viewBox="0 0 35 18" fill="none" xmlns="http://www.w3.org/2000/svg" className="md:w-[35px] md:h-[18px]">
               <path d="M0 2H34.4687" stroke="currentColor" strokeWidth="2.09497"/>
               <path d="M0 9.0705H34.4687" stroke="currentColor" strokeWidth="2.09497"/>
               <path d="M0 16.141H34.4687" stroke="currentColor" strokeWidth="2.09497"/>
@@ -61,9 +61,13 @@ const Navbar = () => {
           {/* Logo Centro */}
           <Link 
             to="/" 
-            className="absolute left-1/2 transform -translate-x-1/2 font-cursive text-3xl text-brand-secondary hover:text-brand-primary transition-colors"
+            className="absolute left-1/2 transform -translate-x-1/2 hover:opacity-80 transition-opacity"
           >
-            calu
+            <img 
+              src="/images/calu-logo.svg" 
+              alt="Calu"
+              className="h-6 md:h-7 w-auto"
+            />
           </Link>
 
           {/* Contacto Derecha */}
@@ -91,7 +95,7 @@ const Navbar = () => {
               className="text-brand-secondary hover:text-brand-primary transition-colors p-2 -ml-2"
               aria-label="Close menu"
             >
-              <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="25" height="25" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg" className="md:w-[31px] md:h-[31px]">
                 <path d="M2 2L28.5695 29" stroke="currentColor" strokeWidth="4"/>
                 <path d="M2 29L29 2.86105" stroke="currentColor" strokeWidth="4"/>
               </svg>
@@ -101,9 +105,13 @@ const Navbar = () => {
             <Link 
               to="/" 
               onClick={() => setIsMenuOpen(false)}
-              className="absolute left-1/2 transform -translate-x-1/2 font-cursive text-3xl text-brand-secondary hover:text-brand-primary transition-colors"
+              className="absolute left-1/2 transform -translate-x-1/2 hover:opacity-80 transition-opacity"
             >
-              calu
+              <img 
+                src="/images/calu-logo.svg" 
+                alt="Calu"
+                className="h-6 md:h-7 w-auto"
+              />
             </Link>
 
             {/* Contacto Derecha */}

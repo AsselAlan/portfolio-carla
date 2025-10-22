@@ -59,7 +59,10 @@ const Proyectos = () => {
                 {/* Info debajo */}
                 <div className="flex items-start justify-between text-sm gap-4">
                   <p className="text-brand-secondary font-light">
-                    {project.title} | {project.subtitle}
+                    {project.subtitle && project.subtitle.trim() !== '' ? 
+                      `${project.title} | ${project.subtitle}` : 
+                      project.title
+                    }
                   </p>
                   <p className="text-gray-500 font-light flex-shrink-0">
                     {project.year}

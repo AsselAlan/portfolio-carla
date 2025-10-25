@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -51,6 +51,11 @@ const Contact = () => {
     }
   };
 
+  // Scroll al inicio cuando se carga el componente
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <section id="contacto" className="min-h-screen bg-brand-accent relative overflow-hidden flex flex-col justify-center py-16 md:py-24 lg:py-32">
       {/* SVG Línea Superior */}
@@ -91,7 +96,7 @@ const Contact = () => {
         </svg>
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="container-custom pt-6 md:pt-0 relative z-10">
         {/* Título principal */}
         <div className="text-start mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-brand-secondary mb-4">

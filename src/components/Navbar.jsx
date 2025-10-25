@@ -133,7 +133,7 @@ const Navbar = () => {
                 item.isDownload ? (
                   <a
                     key={item.path}
-                    href="/cv.pdf"
+                    href="/CV-Lucero, Carla- 2025.pdf"
                     download="CV-Carla-Lucero.pdf"
                     onClick={() => setIsMenuOpen(false)}
                     className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-light text-brand-secondary hover:text-brand-primary transition-colors duration-300 tracking-tight text-left"

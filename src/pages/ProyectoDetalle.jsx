@@ -45,7 +45,7 @@ const ProyectoDetalle = () => {
     <div className="min-h-screen pt-20 bg-brand-accent">
       {/* Header con breadcrumb */}
       <div className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-6">
+        <div className="2xl:max-w-9xl md:max-w-7xl mx-auto px-6 md:px-12 2xl:px-0 py-6">
           <button
             onClick={handleBack}
             className="text-sm text-brand-secondary hover:text-brand-primary transition-colors flex items-center gap-2"
@@ -59,7 +59,7 @@ const ProyectoDetalle = () => {
       </div>
 
       {/* Contenido principal */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="2xl:max-w-9xl md:max-w-7xl mx-auto px-6 md:px-12 2xl:px-0 py-6">
         {/* Categoría y nombre */}
         <div className="flex justify-between items-center mb-8">
           <span className="text-sm text-gray-600 capitalize">

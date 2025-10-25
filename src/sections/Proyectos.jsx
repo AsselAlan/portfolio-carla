@@ -10,7 +10,7 @@ const Proyectos = () => {
 
   return (
     <section id="proyectos" className="py-24 md:py-32 bg-neutral-light">
-      <div className="max-w-[95%] xl:max-w-[90%] mx-auto px-2">
+      <div className="2xl:max-w-9xl md:max-w-7xl mx-auto px-6 md:px-12 2xl:px-0">
         {/* Layout personalizado con CSS Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 auto-rows-auto">
           {projects.map((project) => {

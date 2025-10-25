@@ -44,7 +44,7 @@ const Navbar = () => {
     <>
       {/* Navbar cerrado */}
       <nav className="fixed top-0 left-0 right-0 bg-brand-accent z-50 border-b border-black/10">
-        <div className="flex items-center justify-between px-6 md:px-12 h-16">
+        <div className="2xl:max-w-9xl md:max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 2xl:px-0 h-16">
           {/* Hamburger Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -83,22 +83,24 @@ const Navbar = () => {
       {/* Menu fullscreen */}
       <div
         className={`fixed inset-0 bg-brand-accent z-[60] transition-transform duration-500 ease-in-out ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          isMenuOpen ? 'translate-x-0' : 'translate-x-[100vw]'
         }`}
       >
-        <div className="h-full flex flex-col">
+        <div className="2xl:max-w-9xl md:max-w-7xl mx-auto px-6 md:px-12 2xl:px-0 h-full flex flex-col">
           {/* Header del menu */}
-          <div className="flex items-center justify-between px-6 md:px-12 h-16 border-b border-black/10">
+          <div className="flex items-center justify-between h-16">
             {/* Close Button */}
             <button
               onClick={() => setIsMenuOpen(false)}
               className="text-brand-secondary hover:text-brand-primary transition-colors p-2 -ml-2"
               aria-label="Close menu"
             >
-              <svg width="25" height="25" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg" className="md:w-[31px] md:h-[31px]">
-                <path d="M2 2L28.5695 29" stroke="currentColor" strokeWidth="4"/>
-                <path d="M2 29L29 2.86105" stroke="currentColor" strokeWidth="4"/>
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.03345 1.01703L19.7305 20.017" stroke="#343434" stroke-width="2.9"/>
+                <path d="M1.03345 20.017L20.0334 1.62296" stroke="#343434" stroke-width="2.9"/>
               </svg>
+
+
             </button>
 
             {/* Logo Centro */}
@@ -125,7 +127,7 @@ const Navbar = () => {
           </div>
 
           {/* Menu Items */}
-          <div className="flex-1 flex items-center px-6 md:px-12">
+          <div className="flex-1 flex items-start 2xl:pt-24 sm:pt-12">
             <nav className="space-y-8 md:space-y-12 w-full pl-0">
               {navItems.map((item) => (
                 item.isDownload ? (
@@ -134,7 +136,7 @@ const Navbar = () => {
                     href="/cv.pdf"
                     download="CV-Carla-Lucero.pdf"
                     onClick={() => setIsMenuOpen(false)}
-                    className="block text-5xl md:text-7xl lg:text-8xl font-light text-brand-secondary hover:text-brand-primary transition-colors duration-300 tracking-tight text-left"
+                    className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-light text-brand-secondary hover:text-brand-primary transition-colors duration-300 tracking-tight text-left"
                   >
                     {item.name}
                   </a>
@@ -142,7 +144,7 @@ const Navbar = () => {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item)}
-                    className="block text-5xl md:text-7xl lg:text-8xl font-light text-brand-secondary hover:text-brand-primary transition-colors duration-300 tracking-tight text-left w-full"
+                    className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-light text-brand-secondary hover:text-brand-primary transition-colors duration-300 tracking-tight text-left w-full"
                   >
                     {item.name}
                   </button>
@@ -151,7 +153,7 @@ const Navbar = () => {
                     key={item.path}
                     to={item.path}
                     onClick={() => handleNavClick(item)}
-                    className={`block text-5xl md:text-7xl lg:text-8xl font-light transition-colors duration-300 tracking-tight text-left ${
+                    className={`block text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-light transition-colors duration-300 tracking-tight text-left ${
                       isActive(item.path)
                         ? 'text-brand-primary'
                         : 'text-brand-secondary hover:text-brand-primary'

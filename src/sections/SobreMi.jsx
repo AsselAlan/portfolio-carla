@@ -15,10 +15,10 @@ const SobreMi = () => {
       <div className="mt-12 pb-24 pt-24 flex items-center">
         <div className="w-full">
           {/* Grid: Título a la izquierda, contenido a la derecha */}
-          <div className="grid grid-cols-2 md:grid-cols-[300px_1fr] lg:grid-cols-[400px_1fr] 2xl:grid-cols-[700px_1fr]">
+          <div className="grid grid-cols-1 md:grid-cols-2 md:grid-cols-[300px_1fr] lg:grid-cols-[400px_1fr] 2xl:grid-cols-[700px_1fr]">
             {/* Título izquierda */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-light text-brand-secondary uppercase tracking-wide">
+              <h2 className="text-3xl md:text-4xl pb-6 font-light text-brand-secondary uppercase tracking-wide">
                 SOBRE MÍ
               </h2>
             </div>

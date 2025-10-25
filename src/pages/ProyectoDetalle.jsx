@@ -74,7 +74,7 @@ const ProyectoDetalle = () => {
         <div className="grid lg:grid-cols-[280px_1fr] gap-12 min-h-[600px]">
           {/* Columna izquierda - Info */}
           <div className="flex flex-col h-full">
-            <div className="space-y-8 flex-1">
+            <div className="space-y-8 flex-1 pb-3">
               {/* Título */}
               <div>
                 <h1 className="text-3xl font-bold text-brand-secondary mb-1 leading-tight">

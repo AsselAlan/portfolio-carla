@@ -127,7 +127,7 @@ const Navbar = () => {
           </div>
 
           {/* Menu Items */}
-          <div className="flex-1 flex items-start 2xl:pt-24 sm:pt-12">
+          <div className="flex-1 flex items-start 2xl:pt-24 sm:pt-12 pt-6">
             <nav className="space-y-8 md:space-y-12 w-full pl-0">
               {navItems.map((item) => (
                 item.isDownload ? (
